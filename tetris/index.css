@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(20, auto);
+  background-color: black;
+  gap: 5px;
+}
+
+.grid > div {
+  width: 4vh;
+  height: 4vh;
+  background-color: rgb(50, 50, 50);
+}
