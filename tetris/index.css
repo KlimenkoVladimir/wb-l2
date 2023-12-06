@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  box-sizing: border-box;
 }
 
 .container {
@@ -18,7 +19,58 @@ body {
 }
 
 .grid > div {
-  width: 4vh;
-  height: 4vh;
+  width: 3vh;
+  height: 3vh;
   background-color: rgb(50, 50, 50);
+  border: 0.6vh solid rgb(50, 50, 50);
+}
+
+.grid > div.I {
+  background-color: #00cdcd;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.J {
+  background-color: #0000cd;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.L {
+  background-color: #cd6600;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.O {
+  background-color: #cdcd00;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.S {
+  background-color: #00cd00;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.T {
+  background-color: #9a00cd;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
+}
+.grid > div.Z {
+  background-color: #cd0000;
+  border-top: 0.6vh solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.6vh solid rgba(0, 0, 0, 0.5);
+  border-left: 0.6vh solid rgba(0, 0, 0, 0.2);
+  border-right: 0.6vh solid rgba(0, 0, 0, 0.2);
 }
