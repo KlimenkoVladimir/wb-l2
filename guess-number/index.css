@@ -1,0 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 50px;
+}
+input {
+  margin: 10px;
+  padding: 5px;
+  width: 50px;
+}
+
+.guessNumber {
+  display: none;
+}

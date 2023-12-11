@@ -48,6 +48,12 @@ class Tetris {
     this.init();
   }
 
+  setDifficulty(value) {
+    this.difficulty = value;
+    console.log(this.difficulty);
+    document.querySelector(".start").style.display = "none";
+  }
+
   init() {
     this.renderEmptyField();
     this.renderFigure();
@@ -176,6 +182,25 @@ class Tetris {
         this.field[0] = new Array(columnCount).fill(0);
       }
     });
+    // В зависимости от количества заполненных рядов, добавляет очки
+    switch (fieldRows.length) {
+      case 1:
+        this.score += 100;
+        break;
+      case 2:
+        this.score += 300;
+        break;
+      case 3:
+        this.score += 700;
+        break;
+      case 4:
+        this.score += 1500;
+        break;
+
+      default:
+        break;
+    }
+    scoreElement.innerHTML = this.score;
   }
 
   gameOver() {
@@ -190,6 +215,7 @@ const tetris = new Tetris();
 console.log(tetris);
 
 const cells = document.querySelectorAll(".grid>div");
+const scoreElement = document.querySelector(".score");
 let requestId;
 let timeoutId;
 
@@ -197,7 +223,6 @@ document.addEventListener("keydown", onKeyDown);
 
 tetris.moveDown();
 render();
-// stopLoop();
 startLoop();
 
 function onKeyDown(event) {
@@ -267,7 +292,7 @@ function startLoop() {
           startLoop();
         }
       })),
-    700
+    tetris.difficulty
   );
 }
 

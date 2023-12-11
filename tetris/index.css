@@ -11,12 +11,25 @@ body {
 }
 
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(10, auto);
   grid-template-rows: repeat(20, auto);
   background-color: black;
   gap: 5px;
 }
+
+.start {
+  position: absolute;
+}
+
+.gameOver {
+  display: none;
+}
+
+/* .cells {
+  display: none;
+} */
 
 .grid > div {
   width: 3vh;

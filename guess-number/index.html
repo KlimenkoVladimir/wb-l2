@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Угадай число</title>
+  </head>
+  <body>
+    <h1>Угадай число</h1>
+    <div>
+      <h3>Выберите диапозон игры</h3>
+      <p>от</p>
+      <input type="text" />
+      <p>до</p>
+      <input type="text" />
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Угадай число</title>
+  </head>
+  <body>
+    <h1>Угадай число</h1>
+    <div class="chooseRange">
+      <h3>Выберите диапазон игры</h3>
+      <p>от</p>
+      <input type="text" id="startInput" />
+      <p>до</p>
+      <input type="text" id="endInput" />
+      <button id="start" onclick="setDiapason()">Начать</button>
+    </div>
+
+    <div class="guessNumber">
+      <label for="guess"></label>
+      <input type="number" id="guess" min="1" max="100" />
+      <button onclick="checkGuess()">Попробовать</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
