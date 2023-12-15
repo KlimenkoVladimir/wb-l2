@@ -2,13 +2,45 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 50px;
+  background-color: #0d1117;
+  color: #ffffff;
 }
 input {
   margin: 10px;
   padding: 5px;
-  width: 50px;
+  width: 30px;
+  text-align: center;
+  background-color: #010409;
+  border: 1px #6e7681 solid;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+button {
+  background-color: #010409;
+  border: 2px #6e7681 solid;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  border-color: #d47616;
+}
+
+.reset {
+  position: absolute;
+  top: -55px;
+}
+
+.chooseRange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .guessNumber {
   display: none;
+  position: relative;
 }
