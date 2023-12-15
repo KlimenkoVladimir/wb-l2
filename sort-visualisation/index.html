@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сортировка пузырьком - Визуализация</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div>
+      <label for="input-array">Введите массив чисел через запятую:</label>
+      <input type="text" id="input-array" placeholder="Пример: 5,2,8,1,6" />
+
+      <label for="algorithm">Выберите алгоритм:</label>
+      <select id="algorithm">
+        <option value="bubble">Сортировка пузырьком</option>
+        <!-- Добавьте другие алгоритмы сортировки, если необходимо -->
+      </select>
+
+      <button onclick="generateArray()">Генерировать массив</button>
+      <button onclick="startSorting()">Начать сортировку</button>
+      <button onclick="stopSorting()">Остановить сортировку</button>
+    </div>
+
+    <div id="array-container"></div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
