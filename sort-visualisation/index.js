@@ -1,5 +1,5 @@
 let array = [];
-let animationSpeed = 300; // Задержка в миллисекундах между шагами алгоритма
+let animationSpeed = 50; // Задержка в миллисекундах между шагами алгоритма
 let sortingInterval;
 const arrayContainer = document.getElementById("array-container");
 
@@ -18,7 +18,6 @@ function renderArray() {
     bar.className = "array-bar";
     bar.style.height = `${value * 3}px`;
     bar.style.width = `${40}px`;
-    // bar.textContent = value;
     arrayContainer.appendChild(bar);
     bar.appendChild(span);
   });
@@ -31,6 +30,10 @@ function startSorting() {
     bubbleSort();
   } else if (selectedAlgorithm === "insertion") {
     insertionSort();
+  } else if (selectedAlgorithm === "quick") {
+    quickSort(array);
+  } else if (selectedAlgorithm === "selection") {
+    selectionSort();
   }
   // Добавьте другие алгоритмы сортировки, если необходимо
 }
@@ -84,6 +87,45 @@ function bubbleSort() {
   nextIteration();
 }
 
+function selectionSort() {
+  let i = 0;
+  let minIndex = 0;
+
+  function nextIteration() {
+    if (sortingStopped) {
+      arrayContainer.children[minIndex].style.backgroundColor = "red";
+      return;
+    }
+
+    if (i < array.length - 1) {
+      minIndex = i;
+
+      for (let j = i + 1; j < array.length; j++) {
+        arrayContainer.children[j].style.backgroundColor = "red";
+        if (array[j] < array[minIndex]) {
+          minIndex = j;
+        }
+      }
+
+      setTimeout(() => {
+        swap(i, minIndex);
+        renderArray();
+        arrayContainer.children[minIndex].style.backgroundColor = "blue";
+        arrayContainer.children[i].style.backgroundColor = "blue";
+        i++;
+        nextIteration();
+      }, animationSpeed);
+    } else {
+      // Sorting is complete
+      sortingStopped = true;
+      arrayContainer.children[minIndex].style.backgroundColor = "blue";
+    }
+  }
+
+  // Start the first iteration
+  nextIteration();
+}
+
 function insertionSort() {
   console.log("insert");
 
@@ -96,23 +138,30 @@ function insertionSort() {
     }
 
     if (i < array.length) {
-      let key = array[i];
-      let j = i - 1;
+      let indexMin = i;
+      let j = i + 1;
 
-      arrayContainer.children[i].style.backgroundColor = "red";
-      setTimeout(() => {
-        while (j >= 0 && array[j] > key) {
-          array[j + 1] = array[j];
+      function processNextElement() {
+        if (j < array.length) {
+          arrayContainer.children[j].style.backgroundColor = "red";
+          setTimeout(() => {
+            if (array[j] < array[indexMin]) {
+              indexMin = j;
+            }
+            arrayContainer.children[j].style.backgroundColor = "blue";
+            j++;
+            processNextElement();
+          }, animationSpeed);
+        } else {
+          swap(i, indexMin);
           renderArray();
-          j--;
+          arrayContainer.children[i].style.backgroundColor = "blue";
+          i++;
+          nextIteration();
         }
-        array[j + 1] = key;
-        renderArray();
+      }
 
-        arrayContainer.children[i].style.backgroundColor = "blue";
-        i++;
-        nextIteration();
-      }, animationSpeed);
+      processNextElement();
     } else {
       // Sorting is complete
       sortingStopped = true;
@@ -121,4 +170,68 @@ function insertionSort() {
 
   // Start the first iteration
   nextIteration();
+}
+
+// function quickSort(array) {
+//   if (array.length <= 1) {
+//     return array;
+//   }
+//   let pivotIndex = Math.floor(array.length / 2);
+//   let pivot = array[pivotIndex];
+//   let less = [];
+//   let greater = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === pivot) {
+//       continue;
+//     }
+//     if (array[i] < pivot) {
+//       less.push(array[i]);
+//     }
+//     if (array[i] > pivot) {
+//       greater.push(array[i]);
+//     }
+//   }
+
+//   return [...quickSort(less), pivot, ...quickSort(greater)];
+// }
+
+function quickSort(array, start = 0, end = array.length - 1) {
+  if (start < end) {
+    let pivotIndex = partition(array, start, end);
+
+    setTimeout(() => {
+      quickSort(array, start, pivotIndex - 1);
+    }, animationSpeed * array.length);
+
+    setTimeout(() => {
+      quickSort(array, pivotIndex + 1, end);
+    }, animationSpeed * array.length);
+  } else {
+    sortingStopped = true;
+    renderArray();
+  }
+}
+
+function partition(array, start, end) {
+  let middleIndex = Math.floor((start + end) / 2);
+  let pivotIndex = middleIndex;
+  let pivot = array[pivotIndex];
+  swap(end, pivotIndex);
+
+  let i = start - 1;
+
+  for (let j = start; j < end; j++) {
+    if (array[j] <= pivot) {
+      i++;
+      swap(i, j);
+    }
+  }
+  swap(i + 1, end);
+  return i + 1;
+}
+
+function startQuickSort() {
+  sortingStopped = false;
+  quickSort(array);
 }
