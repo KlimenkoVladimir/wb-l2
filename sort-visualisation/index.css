@@ -2,7 +2,6 @@
   display: flex;
   margin-top: 20px;
 }
-
 .array-bar {
   position: relative;
   background-color: blue;
@@ -19,6 +18,53 @@
   width: 100%;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 50px;
+  background-color: #0d1117;
+  color: #ffffff;
+}
+input {
+  width: 300px;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  background-color: #010409;
+  border: 1px #6e7681 solid;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
 button {
-  margin-top: 10px;
+  background-color: #010409;
+  border: 2px #6e7681 solid;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  border-color: #d47616;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #ffffff;
+  background-color: #010409;
+  border: 1px #6e7681 solid;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 14px;
+  width: 200px;
+  outline: none;
+  position: relative;
+}
+
+/* При фокусе стилизуем границу */
+select:focus {
+  border-color: #d47616;
 }
