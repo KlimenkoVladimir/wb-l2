@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор калорий</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Калькулятор калорий</h1>
+
+      <input type="text" placeholder="Название продукта" id="foodName" />
+
+      <input type="number" placeholder="Масса, г" id="foodWeight" />
+
+      <input
+        type="number"
+        placeholder="Калорийность, ккал/100г"
+        id="calories"
+      />
+
+      <button onclick="addFood()">Добавить продукт</button>
+
+      <h2>Список продуктов</h2>
+      <table id="foodTable"></table>
+
+      <div class="visualisation">
+        <div id="bar">
+          <div id="bar-progress"></div>
+        </div>
+        <p><span id="total"></span>/<span id="goal"></span></p>
+        <button id="changeGoal" onclick="changeGoal()">Изменить</button>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-container">
+        <h3>Цель по калориям</h3>
+        <input type="number" id="newGoal" />
+        <div class="buttons">
+          <button onclick="hideModal()">Отмена</button>
+          <button onclick="setGoal()">Установить</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -230,13 +230,13 @@ function quickSort(array, start = 0, end = array.length - 1) {
   if (start < end) {
     let pivotIndex = partition(array, start, end);
 
-    // setTimeout(() => {
-    quickSort(array, start, pivotIndex - 1);
-    // }, animationSpeed * array.length);
+    setTimeout(() => {
+      quickSort(array, start, pivotIndex - 1);
+    }, animationSpeed * array.length);
 
-    // setTimeout(() => {
-    quickSort(array, pivotIndex + 1, end);
-    // }, animationSpeed * array.length);
+    setTimeout(() => {
+      quickSort(array, pivotIndex + 1, end);
+    }, animationSpeed * array.length);
   } else {
     sortingStopped = true;
     renderArray();
