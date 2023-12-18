@@ -207,7 +207,8 @@ class Tetris {
     this.isGameOver = true;
     stopLoop();
     document.removeEventListener("keydown", onKeyDown);
-    console.log("over");
+    document.querySelector(".modal").style.display = "block";
+    document.querySelector("span").textContent = this.score;
   }
 }
 
@@ -221,9 +222,14 @@ let timeoutId;
 
 document.addEventListener("keydown", onKeyDown);
 
-tetris.moveDown();
-render();
-startLoop();
+startGame();
+
+function startGame() {
+  document.querySelector(".modal").style.display = "none";
+  tetris.moveDown();
+  render();
+  startLoop();
+}
 
 function onKeyDown(event) {
   switch (event.key) {
