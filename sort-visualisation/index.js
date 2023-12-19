@@ -27,18 +27,25 @@ function renderArray() {
 function startSorting() {
   sortingStopped = false;
   const selectedAlgorithm = document.getElementById("algorithm").value;
-  if (selectedAlgorithm === "bubble") {
-    bubbleSort();
-  } else if (selectedAlgorithm === "insertion") {
-    insertionSort();
-  } else if (selectedAlgorithm === "quick") {
-    quickSort(array);
-  } else if (selectedAlgorithm === "selection") {
-    selectionSort();
-  } else if (selectedAlgorithm === "shaker") {
-    shakerSort();
+  switch (selectedAlgorithm) {
+    case "bubble":
+      bubbleSort();
+      break;
+    case "insertion":
+      insertionSort();
+      break;
+    case "quick":
+      quickSort(array);
+      break;
+    case "selection":
+      selectionSort();
+      break;
+    case "shaker":
+      shakerSort();
+      break;
+    default:
+      break;
   }
-  // Добавьте другие алгоритмы сортировки, если необходимо
 }
 let sortingStopped = false;
 function stopSorting() {
@@ -72,21 +79,16 @@ function bubbleSort() {
         nextIteration();
       }, animationSpeed);
     } else {
-      // Move to the next outer loop iteration
       j = 0;
       i++;
-
       if (i < array.length - 1) {
         setTimeout(nextIteration, animationSpeed);
       } else {
-        // Sorting is complete
         sortingStopped = true;
         i = 0;
       }
     }
   }
-
-  // Start the first iteration
   nextIteration();
 }
 
@@ -121,14 +123,11 @@ function shakerSort() {
         nextIteration();
       }, animationSpeed * 2);
     } else {
-      // Move to the next outer loop iteration
       left = 0;
       right = array.length - 1;
       i++;
 
       if (i < array.length / 2) {
-        console.log(i);
-        // Sorting is complete
         nextIteration();
       } else {
         sortingStopped = true;
@@ -136,8 +135,6 @@ function shakerSort() {
       }
     }
   }
-
-  // Start the first iteration
   nextIteration();
 }
 
@@ -169,14 +166,10 @@ function selectionSort() {
         nextIteration();
       }, animationSpeed);
     } else {
-      // Sorting is complete
       sortingStopped = true;
       i = 0;
-      // arrayContainer.children[minIndex].style.backgroundColor = "blue";
     }
   }
-
-  // Start the first iteration
   nextIteration();
 }
 
@@ -213,20 +206,14 @@ function insertionSort() {
 
       processNextElement();
     } else {
-      // Sorting is complete
       sortingStopped = true;
       i = 0;
     }
   }
-
-  // Start the first iteration
   nextIteration();
 }
 
 function quickSort(array, start = 0, end = array.length - 1) {
-  // if (sortingStopped) {
-  //   return;
-  // }
   if (start < end) {
     let pivotIndex = partition(array, start, end);
 

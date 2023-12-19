@@ -64,7 +64,6 @@ select {
   position: relative;
 }
 
-/* При фокусе стилизуем границу */
 select:focus {
   border-color: #d47616;
 }

@@ -279,7 +279,7 @@ function renderFigure() {
   for (let row = 0; row < matrixSize; row++) {
     for (let column = 0; column < matrixSize; column++) {
       if (!tetris.figure.matrix[row][column]) continue;
-      if (tetris.figure.row + row < 0) continue; // Должно не отображать ячейку за пределами видимости
+      if (tetris.figure.row + row < 0) continue;
       const cellIndex =
         (tetris.figure.row + row) * columnCount +
         (tetris.figure.column + column);
@@ -292,7 +292,7 @@ function startLoop() {
   timeoutId = setTimeout(
     () =>
       (requestId = requestAnimationFrame(() => {
-        tetris.moveDown(); // добавить вызов метода moveDown
+        tetris.moveDown();
         render();
         if (!tetris.isGameOver) {
           startLoop();
